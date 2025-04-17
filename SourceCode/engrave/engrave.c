@@ -42,8 +42,8 @@ property_double (threshold_radius, _("Threshold radius"), 34.0)
 
 property_int (line_size, _("Line's size"), 4)
   description   (_("Size of the lines"))
-  ui_range   (1, 14)
   value_range   (1, 25)
+  ui_range   (1, 14)
   ui_steps      (1, 5)
 
 
