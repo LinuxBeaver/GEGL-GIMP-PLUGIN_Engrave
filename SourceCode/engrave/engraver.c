@@ -43,7 +43,7 @@ property_double (threshold_radius, _("Threshold radius"), 34.0)
 property_int (line_size, _("Line's size"), 4)
   description   (_("Size of the lines"))
   value_range   (1, 25)
-  ui_range   (1, 14)
+  ui_range   (1, 6)
   ui_steps      (1, 5)
 
 
@@ -154,11 +154,14 @@ attach (GeglOperation *operation)
   GeglNode *opacity  = gegl_node_new_child (gegl,
                                           "operation", "gegl:opacity", "value", 0.0, NULL);
 
+ GeglNode *opacity2  = gegl_node_new_child (gegl,
+                                          "operation", "gegl:opacity", "value", 0.1, NULL);
+
 
 /*the main graph is inside the gegl:src-atop blend mode which is like an alpha lock in GIMP*/
   gegl_node_link_many (input, alphalock, output, NULL);
 /*the main graph that does the engraving effect is here. normal screen and srcatop are composers, technically gamma is a composer too but I am not using it that way.*/
-  gegl_node_link_many (input, threshold, normal, gamma, fix, screen, crop, idref, srcatop, final, NULL);
+  gegl_node_link_many (input, idref, srcatop,  threshold, normal, gamma, fix, screen, crop,  final, NULL);
   gegl_node_connect (alphalock, "aux", final, "output");
 /*color overlay is blended by screen*/
   gegl_node_connect (screen, "aux", color, "output");
@@ -166,8 +169,8 @@ attach (GeglOperation *operation)
   gegl_node_connect (normal, "aux", ripple, "output");
   gegl_node_link_many (lines, ripple, NULL);
 /*srcatop connects to opacity*/
-  gegl_node_connect (srcatop, "aux", opacity, "output");
-  gegl_node_link_many (idref, newsprint, opacity, NULL);
+  gegl_node_connect (srcatop, "aux", opacity2, "output");
+  gegl_node_link_many (idref, newsprint, opacity, opacity2, NULL);
 /*crop is repairing the gegl graph, and it is technically a composer connecting to the original input */
   gegl_node_connect (crop, "aux", input, "output");
 
