@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with GEGL; if not, see <https://www.gnu.org/licenses/>.
  *
- * 2006 Pippin
+ * 2006 Credit to Pippin
  * 2025 Beaver Engrave
 * 
 * Recreate plugin using this GEGL syntax
@@ -60,7 +60,7 @@ property_double (line_angle, _("Line angle"), -160.0)
   ui_meta     ("unit", "degree")
   ui_meta     ("direction", "ccw")
 
-property_double (line_phi, _("Line's progress through time"), -160.0)
+property_double (line_phi, _("Line's progress through time"), -1.0)
   description   (_("Ripple's Phase Shift (phi) slider showing how the waving lines would change over time"))
   value_range   (-1.0, 1.0)
   ui_steps      (0.5, 1.0)
