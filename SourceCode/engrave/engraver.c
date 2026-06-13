@@ -40,7 +40,7 @@ property_double (threshold_radius, _("Threshold radius"), 34.0)
   ui_steps      (0.5, 1.0)
 
 
-property_int (line_size, _("Line's size"), 4)
+property_int (line_size, _("Lineꞌs size"), 4)
   description   (_("Size of the lines"))
   value_range   (1, 25)
   ui_range   (1, 6)
@@ -48,20 +48,20 @@ property_int (line_size, _("Line's size"), 4)
 
 
 property_double (line_amplitude, _("Line amplitude"), 34.0)
-  description   (_("Ripple's amplitude makes waves out of straight lines"))
+  description   (_("Rippleꞌs amplitude makes waves out of straight lines"))
   value_range   (1.0, 100.0)
   ui_steps      (0.5, 1.0)
 
 
 property_double (line_angle, _("Line angle"), -160.0)
-  description   (_("Ripple's angle controls the angle of the waves"))
+  description   (_("Rippleꞌs angle controls the angle of the waves"))
   value_range (-180, 180)
   ui_steps      (0.5, 1.0)
   ui_meta     ("unit", "degree")
   ui_meta     ("direction", "ccw")
 
-property_double (line_phi, _("Line's progress through time"), -1.0)
-  description   (_("Ripple's Phase Shift (phi) slider showing how the waving lines would change over time"))
+property_double (line_phi, _("Lineꞌs progress through time"), -1.0)
+  description   (_("Rippleꞌs Phase Shift (phi) slider showing how the waving lines would change over time"))
   value_range   (-1.0, 1.0)
   ui_steps      (0.5, 1.0)
 
@@ -78,7 +78,7 @@ property_double (darken, _("Darken engraving"), 1.0)
 
 
 property_color  (color, _("Color"), "black")
-  description   (_("The engraving's color (defaults to 'black')"))
+  description   (_("The engravingꞌs color (defaults to ꞌblackꞌ)"))
 
 
 
